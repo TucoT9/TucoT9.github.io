@@ -1,5 +1,5 @@
 # TucoT9.github.io
-meine eigene websit 
+meine website
                                           
    
    (C) 2023 by Tucot9
