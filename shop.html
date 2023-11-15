@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <style>
+        body {
+            background-image: url('https://i5.walmartimages.com/seo/Spiderman-Logo-Spider-Man-Marvel-Comics-Edible-Cake-Topper-Image-ABPID00151V1_6d1b2897-ccdc-467f-89ee-5cfbbf6dcbd7.bcc3719ff8eaf86e49134c6edeaa4097.jpeg');
+            
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+            transition: background 0.3s; 
+        }
+
+        .dark-mode {
+            background-image: url('https://i.ebayimg.com/images/g/DbYAAOSwIIha2~c0/s-l1200.jpg');
+            
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin: 20px 0 0;
+            transition: color 0.3s, border-radius 0.3s;
+            border-radius: 15px;
+        }
+
+        .site-logo {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-image: url('https://steamuserimages-a.akamaihd.net/ugc/1625227245697579001/D4FABF0C47468DC747B3AEDFB39C5DFB044B460B/?imw=450&impolicy=Letterbox');
+            background-size: cover;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        .site-logo:hover {
+            transform: rotate(360deg);
+        }
+
+        .button-container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .button {
+            width: 300px;
+            height: 100px;
+            background-image: url('https://is1-ssl.mzstatic.com/image/thumb/Purple30/v4/47/96/38/4796388a-6d33-6b6a-dce2-4954b631fb94/source/256x256bb.jpg');
+            
+            background-size: cover;
+            margin: 10px;
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            line-height: 100px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px #000;
+            border-radius: 50px;
+            transition: background 0.3s, transform 0.3s, font-size 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+            font-size: 22px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .button:active {
+            transform: scale(1);
+            box-shadow: none;
+        }
+
+        .dark-mode-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1;
+            color: #fff;
+            font-size: 24px;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .dark-mode .button {
+            border: 2px solid red;
+        }
+
+        .dark-mode .dark-mode-button {
+            transform: rotate(180deg);
+            color: red;
+        }
+
+        .dark-mode h1 {
+            font-size: 36px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+        }
+
+        .dark-mode h1::first-letter {
+            color: red;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="site-logo"></div>
+    <button class="dark-mode-button" onclick="toggleDarkMode()">🌙</button>
+    <h1>Shop</h1>
+    <div class="button-container">
+        <a href="1.html" target="_blank">
+            <div class="button">T9 Multi Tool</div>
+        </a>
+        <a href="https://www.example2.com" target="_blank">
+            <div class="button">Button 2</div>
+        </a>
+        <a href="https://www.example3.com" target="_blank">
+            <div class="button">Button 3</div>
+        </a>
+        <a href="https://www.example4.com" target="_blank">
+            <div class="button">Button 4</div>
+        </a>
+        <a href="https://www.example5.com" target="_blank">
+            <div class="button">Button 5</div>
+        </a>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>

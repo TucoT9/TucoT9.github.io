@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T9tube</title>
+    <style>
+        body {
+            background-image: url('https://static.vecteezy.com/system/resources/previews/025/325/421/non_2x/man-in-spider-costume-background-free-vector.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: left top; /* Hintergrundbild oben links */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #video-container {
+            width: 800px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        video {
+            width: 100%;
+        }
+
+        #comment-section {
+            margin-top: 20px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background: #0074D9;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #error-message {
+            color: red;
+        }
+
+        #info-text {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #site-title {
+            font-size: 4rem;
+            font-family: 'Arial Rounded MT Bold', sans-serif;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info-text">
+        This website was created by TucoT9.
+    </div>
+    <div id="video-container">
+        <div id="site-title">T9tube</div>
+        <video controls controlsList="nodownload" id="media-player">
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div id="comment-section">
+            <h2>Comments</h2>
+            <form id="comment-form">
+                <input type="text" id="username" placeholder="Your Username" required>
+                <textarea id="comment" placeholder="Add a comment..." required></textarea>
+                <button type="submit">Submit Comment</button>
+            </form>
+            <ul id="comment-list"></ul>
+        </div>
+        <div id="admin-section">
+            <input type="text" id="youtube-url" placeholder="YouTube Video URL">
+            <button id="play-youtube-button">Play YouTube Video</button>
+        </div>
+        <div id="error-message"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const commentForm = document.getElementById("comment-form");
+            const commentList = document.getElementById("comment-list");
+            const mediaPlayer = document.getElementById("media-player");
+            const youtubeUrlInput = document.getElementById("youtube-url");
+            const playYoutubeButton = document.getElementById("play-youtube-button");
+            const errorMessage = document.getElementById("error-message");
+
+            playYoutubeButton.addEventListener("click", function () {
+                const youtubeUrl = youtubeUrlInput.value;
+                const videoId = extractVideoId(youtubeUrl);
+
+                if (videoId) {
+                    // Simulate an error message
+                    errorMessage.textContent = "Currently, no videos can be uploaded, and we are working on it.";
+                    mediaPlayer.style display = "none";
+                }
+            });
+
+            commentForm.addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                const username = document.getElementById("username").value;
+                const commentText = document.getElementById("comment").value;
+
+                if (username && commentText) {
+                    const commentItem = document.createElement("li");
+                    commentItem.innerHTML = `<strong>${username}:</strong> ${commentText}`;
+
+                    commentList.appendChild(commentItem);
+
+                    // Clear the form after submission
+                    document.getElementById("username").value = "";
+                    document.getElementById("comment").value = "";
+                }
+            });
+
+            function extractVideoId(url) {
+                const videoIdRegex = /[?&]v=([^&]+)/;
+                const match = url.match(videoIdRegex);
+                return match ? match[1] : null;
+            }
+        });
+    </script>
+</body>
+</html>
