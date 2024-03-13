@@ -1,9 +1,10 @@
 <?php
 // Datenbankverbindungsinformationen aus Umgebungsvariablen lesen
-$servername = getenv("PLESK_DB_HOST");
+$servername = getenv("
+localhost:3306");
 $username = getenv("PLESK_DB_USER");
-$password = getenv("PLESK_DB_PASSWORD");
-$dbname = getenv("PLESK_DB_NAME");
+$password = getenv("@Proton187Zweikinder");
+$dbname = getenv("github_page_log");
 
 // Verbindung zur Datenbank herstellen
 $conn = new mysqli($servername, $username, $password, $dbname);
