@@ -2,7 +2,7 @@
 // Datenbankverbindungsinformationen aus Umgebungsvariablen lesen
 $servername = getenv("
 localhost:3306");
-$username = getenv("PLESK_DB_USER");
+$username = getenv("localhost:3306");
 $password = getenv("@Proton187Zweikinder");
 $dbname = getenv("github_page_log");
 
